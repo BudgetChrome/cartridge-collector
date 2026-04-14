@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bfcmaacse6jq1"]
+
+[ext_resource type="Texture2D" uid="uid://d11lm84ioin13" path="res://resources/art/spritesheet_ground.png" id="1_gxc3b"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8yn2"]
+texture = ExtResource("1_gxc3b")
+texture_region_size = Vector2i(128, 128)
+0:0/next_alternative_id = 11
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 64, -64, 64, 64, -64, 64)
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 12, -64, 12)
+0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 12, -64, 12)
+0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 12, -64, 12)
+0:8/0 = 0
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 12, -64, 12)
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:11/0 = 0
+0:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, -8, 44, 28, 4, 52, -64, 64)
+0:13/0 = 0
+0:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, -20, -64, 64)
+0:15/0 = 0
+0:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+6:12/0 = 0
+6:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_xk1js"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 3
+sources/0 = SubResource("TileSetAtlasSource_g8yn2")
+
+[node name="TileMapBasicBlocks" type="TileMapLayer" unique_id=1045331221]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_xk1js")

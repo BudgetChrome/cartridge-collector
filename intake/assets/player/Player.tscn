@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://dd7bye6yjb625"]
+
+[ext_resource type="Script" uid="uid://d3ehgtbwioqwb" path="res://assets/player/player.gd" id="1_b87do"]
+[ext_resource type="Texture2D" uid="uid://dwpa504rc7i3j" path="res://resources/art/character/platformChar_idle.png" id="1_osspy"]
+[ext_resource type="PackedScene" uid="uid://bikpwk156awg" path="res://assets/player/bullet.tscn" id="2_3tr8o"]
+[ext_resource type="Texture2D" uid="uid://dfcagw4ix4xt2" path="res://resources/art/character/platformChar_climb1.png" id="2_esenj"]
+[ext_resource type="Script" uid="uid://dkfav0qp16tpx" path="res://assets/player/scan.gd" id="2_tl6yi"]
+[ext_resource type="Texture2D" uid="uid://d22t7qccl0bi1" path="res://resources/art/character/platformChar_climb2.png" id="3_tl6yi"]
+[ext_resource type="Texture2D" uid="uid://bn1wvget61ska" path="res://resources/art/character/platformChar_duck.png" id="4_taihm"]
+[ext_resource type="Texture2D" uid="uid://b8yy6b3c51cj3" path="res://resources/art/character/platformChar_jump.png" id="6_vftku"]
+[ext_resource type="Texture2D" uid="uid://dfade8vmm061b" path="res://resources/art/character/platformChar_walk1.png" id="7_xjqvl"]
+[ext_resource type="Texture2D" uid="uid://dt4u7ucqlr5tl" path="res://resources/art/character/platformChar_walk2.png" id="8_8gkxf"]
+[ext_resource type="Texture2D" uid="uid://dxso06wf3ob5g" path="res://resources/art/character/platformChar_happy.png" id="9_a5bol"]
+[ext_resource type="Texture2D" uid="uid://b7efppxvfmt2" path="res://resources/art/battery/battery-0.svg" id="11_a5bol"]
+[ext_resource type="Texture2D" uid="uid://dfqb8pe10hab7" path="res://resources/art/battery/battery-1.svg" id="12_3tr8o"]
+[ext_resource type="Texture2D" uid="uid://cs5d1locugky5" path="res://resources/art/battery/battery-2.svg" id="13_jamj8"]
+[ext_resource type="Texture2D" uid="uid://pp3vo18sw3q0" path="res://resources/art/battery/battery-3.svg" id="14_s562t"]
+[ext_resource type="Texture2D" uid="uid://cgxoqkn0l4ayf" path="res://resources/art/battery/battery-4.svg" id="15_hphct"]
+[ext_resource type="Texture2D" uid="uid://du5m1o0r8nw28" path="res://resources/art/bg_grasslands.png" id="17_jamj8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b87do"]
+size = Vector2(32, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85f2g"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": ExtResource("2_esenj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tl6yi")
+}],
+"loop": true,
+"name": &"climb",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_osspy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vftku")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_taihm")
+}],
+"loop": true,
+"name": &"stagger",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xjqvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8gkxf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_a5bol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_osspy")
+}],
+"loop": true,
+"name": &"yay",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esenj"]
+size = Vector2(48, 72)
+
+[node name="Player" type="CharacterBody2D" unique_id=758077897 groups=["player"]]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_b87do")
+bullet_scene = ExtResource("2_3tr8o")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=676692450]
+limit_bottom = 4500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=828008961]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_b87do")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=364201834]
+self_modulate = Color(1, 0.8235294, 0.8784314, 1)
+sprite_frames = SubResource("SpriteFrames_85f2g")
+animation = &"yay"
+frame_progress = 0.64119846
+
+[node name="ShootPoint" type="Marker2D" parent="." unique_id=714171979]
+position = Vector2(0, 8)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=450458445]
+position = Vector2(0, 20)
+collision_layer = 0
+collision_mask = 166
+script = ExtResource("2_tl6yi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1676615625]
+scale = Vector2(0.70530343, 0.81228095)
+shape = SubResource("RectangleShape2D_esenj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=435232652]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=2066142153]
+offset_right = 800.0
+offset_bottom = 800.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(20, 20)
+
+[node name="Battery0" type="TextureRect" parent="CanvasLayer/MarginContainer" unique_id=6930519]
+layout_mode = 2
+texture = ExtResource("11_a5bol")
+
+[node name="Battery1" type="TextureRect" parent="CanvasLayer/MarginContainer" unique_id=1245970498]
+visible = false
+layout_mode = 2
+texture = ExtResource("12_3tr8o")
+
+[node name="Battery2" type="TextureRect" parent="CanvasLayer/MarginContainer" unique_id=1285388268]
+visible = false
+layout_mode = 2
+texture = ExtResource("13_jamj8")
+
+[node name="Battery3" type="TextureRect" parent="CanvasLayer/MarginContainer" unique_id=1601616413]
+visible = false
+layout_mode = 2
+texture = ExtResource("14_s562t")
+
+[node name="Battery4" type="TextureRect" parent="CanvasLayer/MarginContainer" unique_id=530471883]
+visible = false
+layout_mode = 2
+texture = ExtResource("15_hphct")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1492076736]
+z_index = -2
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1024, 0)
+repeat_times = 64
+follow_viewport = false
+
+[node name="BgGrasslands" type="Sprite2D" parent="Parallax2D" unique_id=43087986]
+texture = ExtResource("17_jamj8")
+region_enabled = true
+region_rect = Rect2(0, -4424, 1024, 9360)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b5b2qdbecmauk"]
+
+[ext_resource type="Texture2D" uid="uid://cso6he5clynqk" path="res://resources/art/items_spritesheet.png" id="1_8phgs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jmgit"]
+texture = ExtResource("1_8phgs")
+texture_region_size = Vector2i(129, 73)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6xiyh"]
+tile_size = Vector2i(129, 73)
+sources/1 = SubResource("TileSetAtlasSource_jmgit")
+
+[node name="CloudTilemap" type="TileMapLayer" unique_id=314916179]
+tile_set = SubResource("TileSet_6xiyh")

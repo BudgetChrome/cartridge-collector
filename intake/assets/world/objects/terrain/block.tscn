@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c08iwoje57hp5"]
+
+[ext_resource type="Texture2D" uid="uid://cogyswvnk18tg" path="res://resources/art/spritesheet_tiles.png" id="1_iyocs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7x3xk"]
+size = Vector2(128, 128)
+
+[node name="Block" type="StaticBody2D" unique_id=1623312431]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=96849666]
+shape = SubResource("RectangleShape2D_7x3xk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1165411320]
+texture = ExtResource("1_iyocs")
+region_enabled = true
+region_rect = Rect2(512, 256, 128, 128)

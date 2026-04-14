@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bda0e12l7basw"]
+
+[ext_resource type="Script" uid="uid://ce8ffjg61778f" path="res://assets/world/ui/restart.gd" id="1_nc6u3"]
+
+[node name="Control" type="Control" unique_id=904454581]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [0.0, 1152.0, 576.0]
+metadata/_edit_horizontal_guides_ = [648.0, 0.0, 320.0]
+
+[node name="Panel" type="Panel" parent="." unique_id=248895604]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=809613649]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 40.0
+offset_bottom = 37.0
+text = "You win!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=1523424556]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -144.0
+offset_right = 44.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Restart?"
+script = ExtResource("1_nc6u3")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://prrtcjgj05rn"]
+
+[ext_resource type="Texture2D" uid="uid://dxso06wf3ob5g" path="res://resources/art/character/platformChar_happy.png" id="1_3rw6f"]
+[ext_resource type="Script" uid="uid://cucec2ra37p36" path="res://assets/world/ui/start_button.gd" id="1_t3ub7"]
+[ext_resource type="Texture2D" uid="uid://cdcpqj1hadpub" path="res://resources/art/white.png" id="2_2x2cw"]
+[ext_resource type="Texture2D" uid="uid://dww2f6p1w7tr1" path="res://resources/art/cartridge-svgrepo-com.svg" id="3_caaty"]
+[ext_resource type="Script" uid="uid://3gi65bcynskw" path="res://assets/world/ui/color_cartridge.gd" id="3_t3ub7"]
+[ext_resource type="Texture2D" uid="uid://dymusgwrbgane" path="res://resources/art/cloud2.png" id="6_02kh2"]
+[ext_resource type="Texture2D" uid="uid://dwhp5tv0fh1ie" path="res://resources/art/cloud1.png" id="6_o62ph"]
+[ext_resource type="Texture2D" uid="uid://c5ge40jeplsff" path="res://resources/art/cloud3.png" id="7_nsny2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bf2qs"]
+font_size = 41
+
+[sub_resource type="LabelSettings" id="LabelSettings_caaty"]
+font_size = 14
+font_color = Color(0.41981313, 0.41981313, 0.4198131, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2x2cw"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" unique_id=1596255709]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [0.0, 1152.0, 576.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=365088825]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7528677, 0.90982777, 0.9911565, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=874430859]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -190.5
+offset_top = 40.0
+offset_right = 190.5
+offset_bottom = 98.00012
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1136661200]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -191.5
+offset_top = -2.0
+offset_right = 189.5
+offset_bottom = 56.0
+grow_horizontal = 2
+text = "Cartridge Collector"
+label_settings = SubResource("LabelSettings_bf2qs")
+
+[node name="Label2" type="Label" parent="Panel" unique_id=1515064696]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 72.0
+offset_right = 225.0
+offset_bottom = 130.0
+grow_horizontal = 2
+text = "A little game made by Benjamin van Driel"
+label_settings = SubResource("LabelSettings_caaty")
+
+[node name="Button" type="Button" parent="." unique_id=1696059206]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -184.0
+offset_right = 100.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0)
+text = "Start"
+script = ExtResource("1_t3ub7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=924731261]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -280.0
+offset_right = 224.0
+offset_bottom = -184.0
+grow_vertical = 0
+texture = ExtResource("1_3rw6f")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=615401230]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -444.0
+offset_top = -184.0
+offset_right = -379.0
+offset_bottom = -137.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_2x2cw")
+script = ExtResource("3_t3ub7")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect3" unique_id=1479533185]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 727.0
+offset_bottom = 737.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_caaty")
+
+[node name="InfoLabel" type="Label" parent="." unique_id=2026904026]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 220.0
+offset_bottom = 91.0
+text = "Arrow keys / A-D to move
+Space / Z / J to jump
+F / K / X to shoot"
+label_settings = SubResource("LabelSettings_2x2cw")
+
+[node name="cloud" type="TextureRect" parent="." unique_id=1300414410]
+z_index = -1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 60.0
+offset_top = 304.0
+offset_right = 189.0
+offset_bottom = 375.0
+grow_horizontal = 2
+texture = ExtResource("6_o62ph")
+
+[node name="cloud2" type="TextureRect" parent="." unique_id=143229508]
+z_index = -1
+layout_mode = 1
+offset_left = 180.0
+offset_top = 216.0
+offset_right = 309.0
+offset_bottom = 287.0
+texture = ExtResource("7_nsny2")
+
+[node name="cloud3" type="TextureRect" parent="." unique_id=122752164]
+z_index = -1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -176.0
+offset_top = 152.0
+offset_right = -47.0
+offset_bottom = 223.0
+grow_horizontal = 0
+texture = ExtResource("6_02kh2")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

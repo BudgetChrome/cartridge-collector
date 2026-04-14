@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bikpwk156awg"]
+
+[ext_resource type="Script" uid="uid://cbbqr0xl8xlu8" path="res://assets/player/bulletscan.gd" id="1_3su7y"]
+[ext_resource type="Texture2D" uid="uid://d37y3sww1db01" path="res://resources/art/character/bullits/laserYellowHorizontal.png" id="1_sotrb"]
+[ext_resource type="Texture2D" uid="uid://4avoc2auafil" path="res://resources/art/character/bullits/laserYellowBurst.png" id="3_wqbnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3su7y"]
+size = Vector2(32, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45uyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sotrb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wqbnv")
+}],
+"loop": true,
+"name": &"impact",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqbnv"]
+size = Vector2(22, 4)
+
+[node name="Bullet" type="Area2D" unique_id=1874659634]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_3su7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1737471474]
+position = Vector2(-4, 0)
+scale = Vector2(1, 0.8799991)
+shape = SubResource("RectangleShape2D_3su7y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2008439946]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_45uyi")
+animation = &"impact"
+
+[node name="Breaker" type="Area2D" parent="." unique_id=215307221]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Breaker" unique_id=146844207]
+shape = SubResource("RectangleShape2D_wqbnv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Breaker" to="." method="_on_breaker_body_entered"]

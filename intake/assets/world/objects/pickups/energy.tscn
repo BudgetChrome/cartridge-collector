@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d2qd8p2sh2njc"]
+
+[ext_resource type="Script" uid="uid://bf02ipujgappl" path="res://assets/world/objects/pickups/energy.gd" id="1_elg3p"]
+[ext_resource type="Texture2D" uid="uid://bwjf3btfgf381" path="res://resources/art/battery/battery-color.svg" id="1_k0ybk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0ybk"]
+size = Vector2(64, 48)
+
+[node name="Energy" type="StaticBody2D" unique_id=1354295448 groups=["pickups"]]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_elg3p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1214856609]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_k0ybk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=238410608]
+shape = SubResource("RectangleShape2D_k0ybk")

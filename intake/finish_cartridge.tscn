@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cfb5mkooi3kmq"]
+
+[ext_resource type="Texture2D" uid="uid://cdcpqj1hadpub" path="res://resources/art/white.png" id="1_bt3yw"]
+[ext_resource type="Texture2D" uid="uid://dww2f6p1w7tr1" path="res://resources/art/cartridge-svgrepo-com.svg" id="2_se5xy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bt3yw"]
+size = Vector2(144, 112)
+
+[node name="Finish" type="StaticBody2D" unique_id=930121614 groups=["win"]]
+scale = Vector2(0.4, 0.4)
+collision_layer = 32
+collision_mask = 0
+
+[node name="White" type="Sprite2D" parent="." unique_id=2062996416]
+modulate = Color(0.6784314, 0.3647059, 0.2509804, 1)
+rotation = -3.1415927
+scale = Vector2(130.89699, -96.74878)
+texture = ExtResource("1_bt3yw")
+
+[node name="CartridgeSvgrepoCom" type="Sprite2D" parent="." unique_id=1295752261]
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(0.2, 0.20000002)
+texture = ExtResource("2_se5xy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=509159857]
+shape = SubResource("RectangleShape2D_bt3yw")

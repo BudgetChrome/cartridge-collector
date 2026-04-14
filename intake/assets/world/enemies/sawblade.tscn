@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dk10s33q7xcec"]
+
+[ext_resource type="Texture2D" uid="uid://bkmw40djsydm4" path="res://resources/art/spritesheet_enemies.png" id="1_oj6gp"]
+[ext_resource type="Script" uid="uid://bnluoehifkor3" path="res://assets/world/enemies/sawblade.gd" id="1_va46r"]
+[ext_resource type="PackedScene" uid="uid://d2qd8p2sh2njc" path="res://assets/world/objects/pickups/energy.tscn" id="2_vasam"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oj6gp"]
+radius = 40.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj6gp"]
+atlas = ExtResource("1_oj6gp")
+region = Rect2(130, 1560, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va46r"]
+atlas = ExtResource("1_oj6gp")
+region = Rect2(130, 1430, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vasam"]
+atlas = ExtResource("1_oj6gp")
+region = Rect2(390, 1430, 130, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4srg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj6gp")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va46r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vasam")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Enemy Sawblade" type="CharacterBody2D" unique_id=1721684803 groups=["enemy"]]
+scale = Vector2(0.75, 0.75)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_va46r")
+energy_scene = ExtResource("2_vasam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1566982116]
+shape = SubResource("CircleShape2D_oj6gp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1882056213]
+sprite_frames = SubResource("SpriteFrames_s4srg")
+frame_progress = 0.51110095
