@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="Cartridge Collector"
+config/version="1"
 run/main_scene="uid://prrtcjgj05rn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://dxso06wf3ob5g"
+config/icon="uid://b0xnfbiybasva"
 
 [autoload]
 
